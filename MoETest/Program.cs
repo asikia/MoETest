@@ -10,22 +10,19 @@ namespace MoETest
     {
         static void Main(string[] args)
         {
-            var phrase = @"one two one three two one three four one two three four five six seven ten Ten eight,nine:eleven;twelve,thirteen,fourteen;fifteen";
-            FilterDuplicateWords(phrase);
+            var phrase = @"One Two One Three Two One Three Four One Two Three Four Five Six Seven Ten Ten Eight,Nine:Eleven;Twelve,Thirteen,Fourteen;Fifteen";
+
+            foreach (var word in FilterDuplicateWords(phrase))
+            {
+                Console.WriteLine(word.ToString());
+            }
         }
 
-        public static void FilterDuplicateWords(string phrase)
+        public static List<string> FilterDuplicateWords(string phrase)
         {
-            var list = phrase.Split(new[] { ' ', ',', ':', ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            var list = phrase.Split(new[] { ' ', ',', ':', ';' }, StringSplitOptions.RemoveEmptyEntries).Distinct().ToList();
             
-                list = list.Distinct().ToList();
-
-            foreach(var word in list)
-            {
-               Console.WriteLine(word);
-            }
-            
- 
+            return list;
         }
     }
 }
