@@ -16,7 +16,7 @@ namespace MoETest
 
         public static void FilterDuplicateWords(string phrase)
         {
-            var list = phrase.Split(new[] { ' ', ',', ':', ';' }).ToList();
+            var list = phrase.Split(new[] { ' ', ',', ':', ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             
                 list = list.Distinct().ToList();
 
