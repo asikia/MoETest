@@ -10,13 +10,13 @@ namespace MoETest
     {
         static void Main(string[] args)
         {
-            var phrase = @"one two one three two one three four one two three four five six seven ten Ten eight nine";
+            var phrase = @"one two one three two one three four one two three four five six seven ten Ten eight,nine:eleven;twelve,thirteen,fourteen;fifteen";
             FilterDuplicateWords(phrase);
         }
 
         public static void FilterDuplicateWords(string phrase)
         {
-            var list = phrase.Split(' ').ToList();
+            var list = phrase.Split(new[] { ' ', ',', ':', ';' }).ToList();
             
                 list = list.Distinct().ToList();
 
