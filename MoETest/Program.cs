@@ -14,7 +14,7 @@ namespace MoETest
 
             foreach (var word in FilterDuplicateWords(phrase))
             {
-                Console.WriteLine(word.ToString());
+                Console.WriteLine(word);
             }
         }
 
